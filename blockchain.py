@@ -59,8 +59,8 @@ class Blockchain(object):
         해시값을 만드는데 block이 input 값으로 사용된다. 
         """
 
-    block_string = json.dumps(block, sort_keys=True).encode()
-    return hashlib.sha256(block_string).hexdigest()
+        block_string = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha256(block_string).hexdigest()
 
     def proof_of_work(self, last_proof):
         """
@@ -81,4 +81,4 @@ class Blockchain(object):
         """
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
-        return guess_hash[:4] == "0000"    
+        return guess_hash[:4] == "0000"   
